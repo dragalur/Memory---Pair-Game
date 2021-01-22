@@ -1,0 +1,90 @@
+/** @format */
+* {
+  padding: 0;
+  margin: 0;
+}
+
+header {
+  width: 100%;
+  height: 40px;
+  background-color: black;
+}
+
+.cardGame {
+  margin: 10px auto;
+}
+
+.cardGame-title {
+  font-size: 20px;
+  color: green;
+  text-align: center;
+}
+
+.cardGame-blocCards {
+  margin: 10px auto;
+  width: 700px;
+  height: 500px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 2px;
+  pointer-events: auto;
+}
+
+.cardGame-item {
+  border-radius: 10px;
+  border: 1px solid #6d6d6d;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 calc(25% - 4px);
+          flex: 0 1 calc(25% - 4px);
+  height: calc(25% - 4px);
+  overflow: hidden;
+  -webkit-transition: 2s;
+  transition: 2s;
+}
+
+.cardGame-item-image {
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  width: 100%;
+  height: 100%;
+  background: url(/image/1.jpg) no-repeat center;
+  background-size: 100% 100%;
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.cardGame__finish {
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(80, 252, 0, 0.849);
+  z-index: 4;
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+.cardGame__finish p {
+  margin-top: 70px;
+  font-size: 55px;
+  text-align: center;
+}
+
+.header-title__open,
+.header-title__openspan {
+  text-align: center;
+  color: #ffff;
+  font-size: 25px;
+}
+/*# sourceMappingURL=style.css.map */
