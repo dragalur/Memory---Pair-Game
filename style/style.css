@@ -10,20 +10,19 @@ header {
   background-color: black;
 }
 
-.cardGame {
-  margin: 10px auto;
+.wrapper {
+  height: calc(100vh - 50px);
 }
 
-.cardGame-title {
-  font-size: 20px;
-  color: green;
-  text-align: center;
+.cardGame {
+  margin: 10px auto;
+  height: 90%;
 }
 
 .cardGame-blocCards {
   margin: 10px auto;
   width: 700px;
-  height: 500px;
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -65,10 +64,8 @@ header {
   -webkit-transition: 0.8s;
   transition: 0.8s;
   position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(80, 252, 0, 0.849);
-  z-index: 4;
+  width: 700px;
+  height: 500px;
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
   -webkit-backface-visibility: hidden;
@@ -79,12 +76,114 @@ header {
   margin-top: 70px;
   font-size: 55px;
   text-align: center;
+  z-index: 5;
+}
+
+.cardGame__finish::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(45deg, #ffbc00, #ff0058);
+}
+
+.cardGame__finish::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(315deg, #4dff03, #00d0ff);
+  -webkit-filter: blur(50px);
+          filter: blur(50px);
+}
+
+.cardGame__finish span {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  right: 6px;
+  bottom: 6px;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: -1;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 25px;
+  color: #ffff;
 }
 
 .header-title__open,
 .header-title__openspan {
-  text-align: center;
   color: #ffff;
-  font-size: 25px;
+  margin: 0 50px 0 50px;
+}
+
+.button-start {
+  border-radius: 30px;
+  border: 2px solid #ffff;
+  width: 80px;
+  width: 80px;
+  height: 30px;
+  background-color: black;
+  color: #ffff;
+  outline: none;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.button-start:hover {
+  -webkit-box-shadow: 0 0 5px 5px red;
+          box-shadow: 0 0 5px 5px red;
+}
+
+@media (max-width: 768px) {
+  .cardGame-blocCards {
+    max-width: 95%;
+    height: 95%;
+  }
+}
+
+@media (max-width: 600px) {
+  .cardGame-blocCards {
+    max-width: 95%;
+    height: 95%;
+  }
+  header * {
+    font-size: 17px;
+  }
+  .button-start {
+    width: 50px;
+  }
+  .header-title__open {
+    margin: 0 30px 0 30px;
+  }
+}
+
+@media (max-width: 400px) {
+  .cardGame-blocCards {
+    max-width: 95%;
+    height: 95%;
+  }
+  header * {
+    font-size: 13px;
+  }
+  .button-start {
+    width: 50px;
+  }
 }
 /*# sourceMappingURL=style.css.map */

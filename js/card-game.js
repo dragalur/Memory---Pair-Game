@@ -12,6 +12,8 @@ let game = {
    Card: document.getElementsByClassName('cardGame-item'),
    finishCard: document.getElementsByClassName('cardGame__finish'),
    counterOpenCards: document.getElementById('conterOpenCards'),
+   buttonStart: document.getElementById('button-start'),
+   time: document.getElementById('time'),
    count: 0,
    openElem: {
       first: null,
@@ -22,9 +24,9 @@ let game = {
 for (let i = 0; i < arrayImage.length; i++) {
    game.Image[i].style.backgroundImage = 'url(image/' + arrayImage[i] + ')';
 }
-//set click on card and write index open cards
-for (let i = 0; i < game.Card.length; i++) {
-   game.Card[i].addEventListener('click', function () {
+//set click event on image
+function setEventCard(i) {
+   game.Card[i].addEventListener('click', () => {
       game.Image[i].style.transform = 'rotateY(0)';
       game.counterOpenCards.innerText++;
       if (game.openElem.second != null) closeCard();
@@ -35,6 +37,24 @@ for (let i = 0; i < game.Card.length; i++) {
       }
    });
 }
+
+let time;
+//start game
+game.buttonStart.addEventListener('click', () => {
+   game.buttonStart.style.opacity = '0';
+   for (let i = 0; i < game.Image.length; i++) {
+      game.Image[i].style.transform = 'rotateY(0)';
+   }
+
+   setTimeout(() => {
+      for (let i = 0; i < game.Image.length; i++) {
+         game.Image[i].style.transform = 'rotateY(180deg)';
+         setEventCard(i);
+      }
+      time = setInterval(() => game.time.innerText++, 1000);
+   }, 3000);
+});
+
 //close cards and is disappeared if image same
 function closeCard() {
    if (
@@ -54,7 +74,8 @@ function closeCard() {
    }
 }
 //function is finished game and show winner message
-const finishGame = function () {
+const finishGame = () => {
    closeCard();
+   clearInterval(time);
    game.finishCard[0].style.transform = 'rotateY(0)';
 };
